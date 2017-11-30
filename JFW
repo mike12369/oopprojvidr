@@ -1,0 +1,75 @@
+package com.T00192959;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class JFW extends JFrame {
+    public JFW() {
+
+        JButton cancelButton;
+        JButton okButton;
+        JTextField textArea0;
+        JTextField textArea1;
+        JLabel Label0;
+        JLabel Label1;
+
+        setTitle("Login");
+        setSize(600, 400);
+        setResizable(false);
+        setLocation(250, 200);
+
+        setLayout(new FlowLayout());
+
+        Label0 = new JLabel("Please enter your username:");
+        add(Label0);
+
+        textArea0 = new JTextField(10);
+        add(textArea0);
+
+        Label1 = new JLabel("Please enter your password:");
+        add(Label1);
+
+        textArea1 = new JTextField(10);
+        add(textArea1);
+
+        okButton = new JButton("LOGIN");
+        add(okButton);
+
+        cancelButton = new JButton("CANCEL");
+        add(cancelButton);
+
+        okButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                String getUser = textArea0.getText();
+                String getPass = textArea1.getText();
+
+//                System.out.println(getUser);
+//                System.out.println(getPass);
+
+                if(!getUser.equals("Mike") && !getPass.equals("OOP")){
+                        JOptionPane.showMessageDialog(null,"Login Unuccessful!");
+                    }
+                else
+                JOptionPane.showMessageDialog(null,"Login successful!");
+                JFW2 jfw2 = new JFW2();
+                jfw2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                jfw2.setSize(400,200);
+                jfw2.setVisible(true);
+
+            }
+        });
+
+         cancelButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ea){
+                 System.exit(0);
+
+             }
+       });
+
+
+      }
+    }
+
+

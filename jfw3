@@ -1,0 +1,64 @@
+package com.T00192959;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class JWF3 extends JFrame {
+        public JWF3() {
+
+            JLabel Label0;
+            Label0 = new JLabel("Please rent a movie:");
+            add(Label0);
+
+            JRadioButton option1 = new JRadioButton("Terminator");
+            JRadioButton option2 = new JRadioButton("Alien");
+            JRadioButton option3 = new JRadioButton("Shooter");
+
+            ButtonGroup group = new ButtonGroup();
+            group.add(option1);
+            group.add(option2);
+            group.add(option3);
+
+            JButton cancelButton;
+            JButton okButton;
+
+            setTitle("Movie Rental");
+            setSize(600, 400);
+            setResizable(false);
+            setLocation(250, 200);
+
+            setLayout(new FlowLayout());
+
+            add(option1);
+            add(option2);
+            add(option3);
+
+            okButton = new JButton("SUBMIT");
+            add(okButton);
+
+            cancelButton = new JButton("CANCEL");
+            add(cancelButton);
+
+
+            okButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    JOptionPane.showMessageDialog(null, "Movie rented!");
+                    System.exit(0);
+                }
+
+            });
+
+
+            cancelButton.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ea){
+                    JOptionPane.showMessageDialog(null, "Movie not rented!");
+
+                }
+            });
+
+
+        }
+    }
+

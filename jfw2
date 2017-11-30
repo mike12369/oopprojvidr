@@ -1,0 +1,122 @@
+package com.T00192959; /**importing package*/
+
+import javax.swing.*;                                      /**importing apis*/
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class JFW2 extends JFrame {                         /**class creation*/
+    public JFW2() {
+
+        JButton cancelButton;                             /**JButton creations*/
+        JButton okButton;
+        JTextField name;                                  /**JTextField creations*/
+        JTextField address;
+        JTextField age;
+        JTextField email;
+
+        JLabel Label0;                                    /**JLabels creations*/
+        JLabel Label1;
+        JLabel Label2;
+        JLabel Label3;
+
+        setTitle("Member Details");                      /**setting title*/
+        setSize(600, 400);                 /**setting size*/
+        setResizable(false);
+        setLocation(250, 200);                     /**setting location*/
+
+        setLayout(new FlowLayout());                     /**setting layout*/
+
+        Label0 = new JLabel("Please enter your name:");                   /**adding label*/
+        add(Label0);
+
+        name = new JTextField(10);                                    /**adding textfield*/
+        add(name);
+
+        Label1 = new JLabel("Please enter your address:");               /**adding label*/
+        add(Label1);
+
+        address = new JTextField(10);                                /**adding textfield*/
+        add(address);
+
+        Label2 = new JLabel("Please enter your age:");                  /**adding label*/
+        add(Label2);
+
+        age = new JTextField(3);                                    /**adding textfield*/
+        add(age);
+
+        Label3 = new JLabel("Please enter your email:");                /**adding label*/
+        add(Label3);
+
+        email = new JTextField(10);                                 /**adding textfield*/
+        add(email);
+
+        okButton = new JButton("SUBMIT");                               /**adding submit button*/
+        add(okButton);
+
+        cancelButton = new JButton("CANCEL");                           /**adding cancel button*/
+        add(cancelButton);
+
+
+
+        okButton.addActionListener(new ActionListener(){                     /**creating action listener*/
+            public void actionPerformed(ActionEvent ae){
+                String getUser = name.getText();                             /**creating string variables and setting them to the text entered in the textfields*/
+                String getAdd = address.getText();
+                String getAge = age.getText();
+                String getEmail = email.getText();
+                String isEmail = "@gmail.com";
+//                System.out.println(getUser);
+//                System.out.println(getPass);
+
+
+                if(isNumeric(getUser) == true || isNumerical(getAge) == false || !getEmail.toLowerCase().contains(isEmail.toLowerCase())){                       /**validation of non numeric name, age not being numerical and the email not being a gmail email*/
+                    JOptionPane.showMessageDialog(null,"Member creation unsuccessful!");                                                /**unsuccessful message dialog*/
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Member creation successful!");                                                      /**successful message dialog*/
+                    String Memberdetails = "Member Details: \nName: " + getUser + "\nAddress: " + getAdd + "\nAge: "  + getAge + "\nEmail: " + getEmail;             /**creating member details string*/
+                    JOptionPane.showMessageDialog(null,"\n" + Memberdetails,"Member Details",JOptionPane.PLAIN_MESSAGE);               /**outputing member details*/
+                    JWF3 jfw3 = new JWF3();                                                                                                                          /**creating new jframe window*/
+                    jfw3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                                                                                            /**setting it to close on exit*/
+                    jfw3.setSize(400,200);                                                                                                          /**setting size*/
+                    jfw3.setVisible(true);                                                                                                                         /**making it visible*/
+                }
+            }
+            public boolean isNumeric(String getUser) {                                                                                                              /**isnumeric method*/
+                try
+                {
+                    double d = Double.parseDouble(getUser);                                                                                                      /**changing getuser to a double*/
+                }
+                catch(NumberFormatException nfe)                                                                                                                 /**checking if numeric or not*/
+                {
+                    return false;                                                                                                                              /**if not*/
+                }
+                return true;                                                                                                                               /**if yes*/
+            }
+
+            public boolean isNumerical(String getAge) {                                                                                                     /**isnumeric method*/
+                try
+                {
+                    double d = Double.parseDouble(getAge);                                                                                                   /**changing getage to a double*/
+                }
+                catch(NumberFormatException nfe)                                                                                                             /**checking if numeric or not*/
+                {
+                    return false;                                                                                                                       /**if not*/
+                }
+                return true;                                                                                                                        /**if yes*/
+            }
+        });
+
+        cancelButton.addActionListener(new ActionListener(){                                                                                        /**action listener for cancel button*/
+            public void actionPerformed(ActionEvent ea){
+                System.exit(0);                                                                                                                /**closing program*/
+
+            }
+        });
+
+
+    }
+}
+
+

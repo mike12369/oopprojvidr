@@ -1,0 +1,37 @@
+package com.T00192959;
+
+import javax.swing.*;
+
+public class Login {
+
+    private String USN;
+    private String PASS;
+
+    public String getUSN() { return USN; }
+    public String getPASS() { return PASS; }
+
+    public void setUSN(String USN) { this.USN = USN; }
+    public void setPASS(String PASS) { this.PASS = PASS; }
+
+
+    public Login(){this("unknown", "unknown");}
+
+    public Login(String USN, String PASS){
+
+        setUSN(USN);
+        setPASS(PASS);
+    }
+
+    @Override
+    public String toString() {
+        String person = String.format("\n\nUsername: %-20s \nPassword: %-20s", getUSN(), getPASS());
+
+        if(USN != "Mike" && PASS != "OOP2"){
+            JOptionPane.showMessageDialog(null,"Login Unuccessful");
+        }
+
+        else
+            JOptionPane.showMessageDialog(null,"Login Successful");
+            return person;
+    }
+}

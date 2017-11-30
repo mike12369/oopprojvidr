@@ -1,0 +1,41 @@
+package com.T00192959;
+
+public class dvd{
+
+    private String name;
+    private double price;
+    private String publisher;
+    private String releaseDate;
+    private int ageRating;
+
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public String getPublisher() { return publisher; }
+    public String getReleaseDate() { return releaseDate; }
+    public int getAgeRating() { return ageRating; }
+
+    public void setName(String name) { this.name = name; }
+    public void setPrice(double price) { this.price = price; }
+    public void setPublisher(String publisher) { this.publisher = publisher; }
+    public void setReleaseDate(String releaseDate) { this.releaseDate = releaseDate; }
+    public void setAgeRating(int ageRating) { this.ageRating = ageRating; }
+
+    public dvd(){this("unknown", 0.0,"unknown","unknown",0);}
+
+    public dvd(String name, double price, String publisher, String releaseDate, int ageRating){
+        setName(name);
+        setPrice(price);
+        setPublisher(publisher);
+        setReleaseDate(releaseDate);
+        setAgeRating(ageRating);
+    }
+
+    @Override
+    public String toString() {
+        String dvd = String.format("Name: %-20s \nPrice: %-20s \nPublisher: %-20s \nRelease Date: %-20s \nAge Rating: %-20s",
+                getName(),getPrice(),getPublisher(),getReleaseDate(),getAgeRating());
+        System.out.print(dvd);
+        return dvd;
+    }
+}
+
